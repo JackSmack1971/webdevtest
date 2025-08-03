@@ -1,0 +1,110 @@
+/* Design Tokens */
+/* Root: light theme defaults. Dark theme overrides below using prefers-color-scheme. */
+:root {
+  /* Color palette */
+  --color-bg: #ffffff;
+  --color-fg: #0b1020;
+  --color-muted: #5b6476;
+  --color-inverse: #ffffff;
+
+  /* Brand and accents */
+  --color-accent: #4f46e5;      /* indigo-600 */
+  --color-accent-ink: #ffffff;  /* text on accent */
+  --color-accent-700: #4338ca;
+  --color-accent-500: #6366f1;
+
+  /* Surface tokens */
+  --surface-1: #ffffff;
+  --surface-2: #f6f7fb;         /* subtle raised */
+  --surface-3: #eef0f7;         /* cards/stripes */
+  --border: #d9deea;
+
+  /* Semantic */
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+  --info: #0ea5e9;
+
+  /* Typography families */
+  --font-sans: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Fluid type scale using clamp(min, vw, max) based on a 320–1200px viewport band */
+  --fs-100: clamp(0.875rem, 0.82rem + 0.2vw, 0.95rem);
+  --fs-200: clamp(1rem, 0.94rem + 0.3vw, 1.125rem);
+  --fs-300: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);
+  --fs-400: clamp(1.25rem, 1.18rem + 0.5vw, 1.5rem);
+  --fs-500: clamp(1.5rem, 1.36rem + 0.9vw, 1.875rem);
+  --fs-600: clamp(1.875rem, 1.66rem + 1.4vw, 2.375rem);
+
+  /* Spacing scale (4-based with extensions) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* Container widths */
+  --container-sm: 40rem;   /* 640px */
+  --container-md: 64rem;   /* 1024px */
+  --container-lg: 80rem;   /* 1280px */
+
+  /* Radius, shadows */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.08);
+  --shadow-md: 0 4px 10px rgb(0 0 0 / 0.08), 0 1px 0 rgb(0 0 0 / 0.02);
+  --shadow-lg: 0 12px 24px rgb(0 0 0 / 0.12);
+
+  /* Transitions and motion */
+  --ease-standard: cubic-bezier(.2,.8,.2,1);
+  --duration-1: 150ms;
+  --duration-2: 250ms;
+  --duration-3: 400ms;
+
+  /* Z-indices */
+  --z-nav: 50;
+  --z-dialog: 100;
+  --z-toast: 200;
+
+  /* Outline/focus */
+  --focus-ring: 2px solid var(--color-accent);
+  --focus-offset: 2px;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0b0f1a;
+    --color-fg: #e6e9f2;
+    --color-muted: #a2acc3;
+    --color-inverse: #0b0f1a;
+
+    --surface-1: #0f1524;
+    --surface-2: #121a2c;
+    --surface-3: #17223a;
+    --border: #22304d;
+
+    --color-accent: #818cf8;     /* indigo-400 for better contrast on dark */
+    --color-accent-ink: #0b0f1a;
+
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+    --shadow-md: 0 6px 14px rgb(0 0 0 / 0.45), 0 1px 0 rgb(255 255 255 / 0.02);
+    --shadow-lg: 0 18px 36px rgb(0 0 0 / 0.55);
+  }
+}
+
+/* High-contrast adjustment hook (optional) */
+@media (forced-colors: active) {
+  :root {
+    --color-accent: Highlight;
+    --color-accent-ink: Canvas;
+    --border: GrayText;
+  }
+}

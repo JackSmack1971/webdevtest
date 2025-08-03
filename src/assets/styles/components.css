@@ -1,0 +1,171 @@
+/* Components */
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  z-index: var(--z-nav);
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-3);
+}
+.nav__brand {
+  font-weight: 800;
+  font-size: var(--fs-300);
+}
+.nav__menu {
+  display: flex;
+  gap: var(--space-4);
+}
+.nav__link {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+}
+.nav__link[aria-current="page"] {
+  background: color-mix(in oklab, var(--color-accent) 12%, transparent);
+  color: var(--color-accent-700);
+}
+
+/* Buttons */
+.btn, .button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-1);
+  color: inherit;
+}
+.btn--primary, .button--primary {
+  border-color: transparent;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+.btn--primary:hover, .button--primary:hover { background: var(--color-accent-700); }
+.button--ghost, .btn--ghost { background: transparent; color: var(--color-accent); border-color: var(--color-accent); }
+.btn:disabled, .button:disabled { opacity: 0.6; }
+
+/* Hero */
+.hero__eyebrow {
+  color: var(--color-muted);
+  font-size: var(--fs-100);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.hero__title { font-size: var(--fs-600); }
+.hero__lead { color: var(--color-muted); font-size: var(--fs-300); }
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  border: 0;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+.hero__cta:hover { background: var(--color-accent-700); }
+.hero__cta:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }
+
+/* Filter controls */
+.filter-bar {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  background: var(--surface-1);
+  color: inherit;
+  border-radius: var(--radius-sm);
+}
+.filter-btn[aria-pressed="true"] {
+  background: color-mix(in oklab, var(--color-accent) 14%, transparent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-700);
+}
+
+/* Gallery cards */
+.card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: clip;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-2) var(--ease-standard), box-shadow var(--duration-2) var(--ease-standard);
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.card__media img { width: 100%; display: block; }
+.card__body { padding: var(--space-4); }
+.card__title { margin: 0; font-size: var(--fs-300); }
+.card__meta { color: var(--color-muted); font-size: var(--fs-100); }
+
+/* Lightbox controls */
+.lightbox__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lightbox__close {
+  border: 0;
+  background: transparent;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+.lightbox__close:hover { background: var(--surface-2); }
+
+/* Forms */
+.form { display: grid; gap: var(--space-4); max-width: var(--container-sm); }
+.form__field { display: grid; gap: var(--space-2); }
+.input, .textarea, .select { width: 100%; }
+.input:focus-visible, .textarea:focus-visible, .select:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }
+.form__actions { display: flex; gap: var(--space-3); justify-content: flex-start; }
+
+/* Visually hidden utility */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Reduced motion refinements */
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}

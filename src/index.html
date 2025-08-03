@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Responsive portfolio website showcasing projects, photography, and case studies." />
+  <title>Portfolio</title>
+
+  <!-- SEO & Open Graph -->
+  <meta property="og:title" content="Portfolio" />
+  <meta property="og:description" content="Responsive portfolio website showcasing projects, photography, and case studies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/" />
+  <meta property="og:image" content="./assets/images/hero/hero.jpg" />
+
+  <!-- Preload hooks (replace with real assets as added) -->
+  <!-- <link rel="preload" as="image" href="./assets/images/hero/hero@lg.avif" imagesrcset="./assets/images/hero/hero@lg.avif 1600w, ./assets/images/hero/hero@md.avif 1200w, ./assets/images/hero/hero@sm.avif 800w" imagesizes="(min-width: 60rem) 60rem, 100vw" fetchpriority="high"> -->
+
+  <!-- Styles: order matters (reset → variables → base → layout → components → utilities) -->
+  <link rel="stylesheet" href="./assets/styles/reset.css" />
+  <link rel="stylesheet" href="./assets/styles/variables.css" />
+  <link rel="stylesheet" href="./assets/styles/base.css" />
+  <link rel="stylesheet" href="./assets/styles/layout.css" />
+  <link rel="stylesheet" href="./assets/styles/components.css" />
+  <link rel="stylesheet" href="./assets/styles/utilities.css" />
+
+  <link rel="manifest" href="./site.webmanifest" />
+
+  <!-- Structured Data (JSON-LD) placeholder -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Your Name",
+    "url": "https://example.com",
+    "sameAs": [
+      "https://github.com/username",
+      "https://www.linkedin.com/in/username"
+    ],
+    "jobTitle": "Designer & Developer",
+    "image": "./assets/images/avatars/profile.jpg"
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Site header -->
+  <header role="banner" class="site-header" data-js="header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="Home">
+        <img src="./assets/images/icons/logo.svg" alt="" width="32" height="32" />
+        <span class="brand__name">Your Name</span>
+      </a>
+
+      <!-- Primary navigation -->
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-js="nav-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        ☰
+      </button>
+
+      <nav id="primary-nav" class="site-nav" aria-label="Primary" data-js="primary-nav">
+        <ul class="nav-list">
+          <li><a href="#work" aria-current="page">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main id="main-content" tabindex="-1">
+    <!-- Hero section -->
+    <section id="hero" class="section hero" aria-labelledby="hero-title">
+      <div class="container flow">
+        <h1 id="hero-title">Designer & Developer crafting accessible, fast experiences</h1>
+        <p class="lead">Portfolio of selected projects with case studies, code, and visuals.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#work">View work</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio / Gallery -->
+    <section id="work" class="section work" aria-labelledby="work-title" data-gallery data-js="gallery">
+      <div class="container">
+        <div class="cluster space-between align-center">
+          <h2 id="work-title">Selected Work</h2>
+
+          <!-- Filter controls -->
+          <div class="filters" role="group" aria-label="Filter projects" data-filters data-js="filters">
+            <button type="button" class="btn btn-ghost" aria-pressed="true" data-filter="all">All</button>
+            <button type="button" class="btn btn-ghost" aria-pressed="false" data-filter="web">Web</button>
+            <button type="button" class="btn btn-ghost" aria-pressed="false" data-filter="ui">UI</button>
+            <button type="button" class="btn btn-ghost" aria-pressed="false" data-filter="photo">Photo</button>
+          </div>
+        </div>
+
+        <p id="filter-status" class="sr-only" role="status" aria-live="polite" data-js="filter-status">Showing all projects.</p>
+
+        <!-- Gallery grid -->
+        <ul class="grid gallery" data-gallery-grid aria-describedby="filter-status" data-js="gallery-grid">
+          <!-- Lightbox trigger pattern: anchors with data-lightbox and optional data-index — see docs/lightbox-component.md -->
+          <!-- Example item structure to be duplicated/templated -->
+          <li class="gallery__item" data-category="web" data-tags="react,accessibility">
+            <article class="card">
+              <a href="./assets/images/full/sample-1.jpg"
+                 class="card__link"
+                 data-lightbox="work"
+                 data-index="0">
+                <figure class="card__media">
+                  <img
+                    src="./assets/images/thumbnails/sample-1.jpg"
+                    alt="Project Alpha — responsive dashboard UI"
+                    width="480" height="360"
+                    loading="lazy"
+                    decoding="async"
+                    srcset="./assets/images/thumbnails/sample-1.jpg 480w"
+                    sizes="(min-width: 64rem) 320px, (min-width: 48rem) 33vw, 50vw">
+                  <figcaption class="card__caption">Project Alpha</figcaption>
+                </figure>
+              </a>
+              <div class="card__body flow">
+                <h3 class="card__title">Project Alpha</h3>
+                <p class="card__meta">Web • Accessibility • React</p>
+              </div>
+            </article>
+          </li>
+
+          <li class="gallery__item" data-category="ui" data-tags="figma,prototyping">
+            <article class="card">
+              <a href="./assets/images/full/sample-2.jpg" class="card__link" data-lightbox="work" data-index="1">
+                <figure class="card__media">
+                  <img
+                    src="./assets/images/thumbnails/sample-2.jpg"
+                    alt="Project Beta — mobile app UI kit"
+                    width="480" height="360"
+                    loading="lazy" decoding="async"
+                    srcset="./assets/images/thumbnails/sample-2.jpg 480w"
+                    sizes="(min-width: 64rem) 320px, (min-width: 48rem) 33vw, 50vw">
+                  <figcaption class="card__caption">Project Beta</figcaption>
+                </figure>
+              </a>
+              <div class="card__body flow">
+                <h3 class="card__title">Project Beta</h3>
+                <p class="card__meta">UI • Prototyping • Figma</p>
+              </div>
+            </article>
+          </li>
+
+          <li class="gallery__item" data-category="photo" data-tags="portrait,studio">
+            <article class="card">
+              <a href="./assets/images/full/sample-3.jpg" class="card__link" data-lightbox="work" data-index="2">
+                <figure class="card__media">
+                  <img
+                    src="./assets/images/thumbnails/sample-3.jpg"
+                    alt="Portrait photography set with soft lighting"
+                    width="480" height="360"
+                    loading="lazy" decoding="async"
+                    srcset="./assets/images/thumbnails/sample-3.jpg 480w"
+                    sizes="(min-width: 64rem) 320px, (min-width: 48rem) 33vw, 50vw">
+                  <figcaption class="card__caption">Studio Portraits</figcaption>
+                </figure>
+              </a>
+              <div class="card__body flow">
+                <h3 class="card__title">Studio Portraits</h3>
+                <p class="card__meta">Photography • Portrait • Studio</p>
+              </div>
+            </article>
+          </li>
+        </ul>
+
+        <!-- Load more -->
+        <div class="center">
+          <button type="button" class="btn" data-load-more>Load more</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox dialog -->
+    <!-- Keep selectors in sync with docs/lightbox-component.md and src/assets/scripts/lightbox.js -->
+    <div class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" aria-describedby="lightbox-desc" hidden data-lightbox-root data-js="lightbox">
+      <div class="lightbox__backdrop" data-close aria-hidden="true"></div> <!-- backdrop (click to close) -->
+      <div class="lightbox__dialog" role="document" tabindex="-1" data-js="lightbox-dialog"> <!-- dialog container -->
+        <header class="lightbox__header">
+          <h2 id="lightbox-title">Image preview</h2>
+          <p id="lightbox-desc" class="sr-only">Use left and right arrow keys to navigate. Press Escape to close.</p>
+          <button type="button" class="btn btn-ghost" data-close aria-label="Close preview">✕</button> <!-- close control -->
+        </header>
+        <figure class="lightbox__figure">
+          <img alt="" width="1600" height="1200" data-lightbox-image decoding="async" /> <!-- active image target -->
+          <figcaption data-lightbox-caption></figcaption> <!-- caption region -->
+        </figure>
+        <footer class="lightbox__footer cluster space-between align-center">
+          <div aria-live="polite" role="status" data-lightbox-counter>1 of 1</div> <!-- pagination/status -->
+          <div class="cluster">
+            <button type="button" class="btn" data-prev aria-label="Previous image">◀</button> <!-- prev control -->
+            <button type="button" class="btn" data-next aria-label="Next image">▶</button> <!-- next control -->
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section id="about" class="section about" aria-labelledby="about-title">
+      <div class="container grid two">
+        <div>
+          <h2 id="about-title">About</h2>
+          <p>Product-minded designer/developer focused on accessible interfaces and performance.</p>
+          <ul class="skills">
+            <li>Semantic HTML & a11y</li>
+            <li>CSS architecture & responsive design</li>
+            <li>JavaScript & progressive enhancement</li>
+            <li>Performance optimization</li>
+          </ul>
+        </div>
+        <figure class="about__figure">
+          <img src="./assets/images/avatars/profile.jpg" alt="Portrait of Your Name" width="400" height="400" loading="lazy" decoding="async">
+          <figcaption class="sr-only">Your Name</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">Contact</h2>
+        <form class="contact__form flow" method="post" action="#" novalidate data-contact-form data-js="contact-form">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-hint">
+            <p id="name-hint" class="hint">Enter your full name.</p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+
+          <p class="sr-only" role="status" aria-live="polite" data-form-status data-js="form-status"></p>
+          <button type="submit" class="btn btn-primary">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site footer -->
+  <footer role="contentinfo" class="site-footer">
+    <div class="container">
+      <nav aria-label="Social">
+        <ul class="nav-list">
+          <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer"><span class="sr-only">GitHub</span><img src="./assets/images/icons/github.svg" alt="" width="20" height="20"></a></li>
+          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><span class="sr-only">LinkedIn</span><img src="./assets/images/icons/linkedin.svg" alt="" width="20" height="20"></a></li>
+          <li><a href="mailto:email@example.com"><span class="sr-only">Email</span><img src="./assets/images/icons/mail.svg" alt="" width="20" height="20"></a></li>
+        </ul>
+      </nav>
+      <p>&copy; <span data-year data-js="year"></span> Your Name. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts (modules, deferred) -->
+  <script type="module" defer src="./assets/scripts/utils.js"></script>
+  <script type="module" defer src="./assets/scripts/a11y.js"></script>
+  <script type="module" defer src="./assets/scripts/lightbox.js"></script>
+  <script type="module" defer src="./assets/scripts/gallery.js"></script>
+</body>
+</html>

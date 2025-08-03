@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: Update sitemap URL after deployment
+Sitemap: https://example.com/sitemap.xml

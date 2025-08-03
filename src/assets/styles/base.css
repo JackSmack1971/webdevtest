@@ -1,0 +1,71 @@
+/* Base styles */
+/* HTML Architect will extend these with typography and element defaults */
+
+/* Document */
+html {
+  color-scheme: light dark; /* enable UA theming for form controls */
+  hanging-punctuation: first last;
+}
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-200);
+  line-height: 1.6;
+  accent-color: var(--color-accent);
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+/* Containers */
+.container {
+  width: min(100% - 2rem, var(--container-lg));
+  margin-inline: auto;
+}
+.container--md { max-width: var(--container-md); }
+.container--sm { max-width: var(--container-sm); }
+
+/* Typography defaults */
+h1, h2, h3, h4, h5, h6 { line-height: 1.2; margin: 0; font-weight: 700; }
+h1 { font-size: var(--fs-600); }
+h2 { font-size: var(--fs-500); }
+h3 { font-size: var(--fs-400); }
+p { margin-block: var(--space-4); }
+
+/* Flow spacing utility for vertical rhythm */
+.flow > * + * { margin-block-start: var(--space-4); }
+
+/* Links */
+a { color: var(--color-accent); }
+a:hover { color: var(--color-accent-700); }
+a:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }
+
+/* Selection */
+::selection { background: color-mix(in oklab, var(--color-accent) 25%, transparent); color: var(--color-inverse); }
+
+/* Media */
+img, picture { height: auto; border-radius: 0; }
+figure { margin: 0; }
+
+/* Surfaces */
+.surface-1 { background: var(--surface-1); }
+.surface-2 { background: var(--surface-2); }
+.surface-3 { background: var(--surface-3); }
+.border { border: 1px solid var(--border); }
+
+/* Forms */
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: 0.6; }
+input, textarea, select { color: inherit; background-color: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4); }
+input::placeholder, textarea::placeholder { color: var(--color-muted); }
+
+/* Focus visibility baseline */
+:where(button, [href], input, select, textarea, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* Reduced motion considerations for base transitions */
+@media (prefers-reduced-motion: no-preference) {
+  a, button { transition: color var(--duration-1) var(--ease-standard), background-color var(--duration-1) var(--ease-standard), box-shadow var(--duration-1) var(--ease-standard); }
+}

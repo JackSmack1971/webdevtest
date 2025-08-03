@@ -1,0 +1,43 @@
+/* Minimal CSS Reset */
+/* Based on a small subset of modern-normalize principles with A11Y & performance tweaks */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Typography & layout baselines */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html:focus-within { scroll-behavior: smooth; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Media elements behave predictably and don’t overflow */
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+
+/* Form controls inherit fonts */
+input, button, textarea, select { font: inherit; }
+
+/* Basic link normalization */
+a { text-decoration: none; color: inherit; }
+
+/* Remove default list styles on ul, ol elements when using ARIA list roles */
+ul[role='list'], ol[role='list'] { list-style: none; margin: 0; padding: 0; }
+
+/* Table normalization */
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
